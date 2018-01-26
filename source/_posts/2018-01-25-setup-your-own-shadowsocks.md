@@ -44,9 +44,9 @@ wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/
 chmod +x shadowsocks.sh
 ./shadowsocks.sh 2>&1 | tee shadowsocks.log
 ```
-** 输入ShadowSocks密码，需要记住
-* 输入端口号，默认为`8989`
-* 选择加密方式，默认为`aes-256-gcm`，建议修改为`7）aes-256-cfb`
+    * 输入ShadowSocks密码，需要记住
+    * 输入端口号，默认为`8989`
+    * 选择加密方式，默认为`aes-256-gcm`，建议修改为`7）aes-256-cfb`
 
 * 常用命令
 > 启动：/etc/init.d/shadowsocks start
