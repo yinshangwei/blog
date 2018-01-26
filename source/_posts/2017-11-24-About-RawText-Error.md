@@ -19,6 +19,8 @@ Error内容：<font color=red>RawText "" must be wrapped in an explicit <Text> c
 分析了一波，发现是数据问题导致的。当下面的代码中someVariable的值为空字符串`''`的时候，就会出现这种Error。  
 `{ someVariable && <Text>some text</Text> }`
 
+<!-- more -->
+
 ## 测试结果
 为了分析这个问题，针对someVariable为空的情况做了一些测试，结果如下：  
 **case 1.** `{ '' && <Text>some text</Text> }` => **有Error，App会Crash**  
@@ -30,11 +32,13 @@ Error内容：<font color=red>RawText "" must be wrapped in an explicit <Text> c
 **case 7.** `{ {} && <Text>some text</Text> }` => 没有Error, `<Text>`组件会显示  
 
 ## 原因分析
-为什么会出现以上结果呢？  
+为什么会出现以上结果呢？
 为了分析这个问题首先需要明白`expr1 && expr2`的含义。
 这个表达式是说当`expr1`为false的时候，会返回`expr1`，否则会返回`expr2`。  
-那么`''`|`0`|`null`|`undefined `|`NaN`|`[]`|`{}`这些值到底是true还是false呢，我们可以在Chrome Console上面通过两个非操作`!!`来测试一下。  
-<img src="/img/2017-11-24-chrome-console.png" width="500">  
+那么`''`|`0`|`null`|`undefined `|`NaN`|`[]`|`{}`这些值到底是true还是false呢，我们可以在Chrome Console上面通过两个非操作`!!`来测试一下。
+  
+<img src="/img/2017-11-24-chrome-console.png" width="500">
+  
 从上面结果可以看到，`''`|`0`|`null`|`undefined `|`NaN`的值是false，`[]`|`{}`的值为true。  
 好了，通过以上分析我们可以得到case 1 ~ case 6的结果如下：  
 **case 1.** `{ '' && <Text>some text</Text> }` => `{ '' }`  

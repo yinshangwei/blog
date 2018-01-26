@@ -27,6 +27,8 @@ comments: true
 ```
 ***
 
+<!-- more -->
+
 > <font color=gray>字体的显示</font>
 
 *斜体* or _斜体_

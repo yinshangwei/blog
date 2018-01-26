@@ -9,7 +9,7 @@ categories:
 ---
 
 
-![image](/img/2017-11-30-nvm.png)  
+![image](/img/2017-11-30-nvm.png)
 ## 前言
 这里主要介绍mac的安装（linux可以参照），windows系统的话可以参考[windows安装](https://cnodejs.org/topic/5338c5db7cbade005b023c98)。
 
@@ -18,6 +18,8 @@ categories:
 至于为什么用homebrew安装会出现这个问题，可以参考github上的一个[issue](https://github.com/creationix/nvm/issues/855)。
 使用homebrew安装nvm已经是官方不推荐的做法，在nvm的[github文档](https://github.com/creationix/nvm#installation)上也有明确的说明：
 >Homebrew installation is not supported. If you have issues with homebrew-installed nvm, please brew uninstall it, and install it using the instructions below, before filing an issue.
+
+<!-- more -->
 
 ## 安装步骤
 一、**卸载nvm、node**
