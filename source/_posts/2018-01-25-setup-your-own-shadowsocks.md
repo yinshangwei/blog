@@ -10,12 +10,10 @@ categories:
 
 ![image](/img/2018-01-25-shadowsocks.png)
 ## 购买VPS服务器
-如果你想拥有自己的专属网络用来科学上网，首先你需要购买一台VPS服务器。
+如果你想拥有自己的专属网络用来[科学上网](http://ju.outofmemory.cn/entry/108589)，首先你需要购买一台VPS服务器。
 市面上这样的产品也非常多，可以参考[VPS优惠信息](http://www.zrblog.net/category/vps-2/offers)。
 VPS服务器的架构一般有两种[OpenVZ和KVM](https://clientarea.ramnode.com/knowledgebase.php?action=displayarticle&id=52)，建议选择KVM服务器，比较稳定并且可定制化程度更高。
-
 <!-- more -->
-
 
 ## 配置VPS服务器
 购买服务器后，一般会收到关于服务器的基本信息（ip address, username, password等）。
@@ -34,30 +32,30 @@ Host server_name
  User username
 ```
 完成之后，可以直接输入`ssh server_name`(不需要输入ip address)进入到服务器而不需要输入密码。
-
+<br>
 
 ## 安装ShadowSocks
-#### 什么是ShadowSocks
+* 什么是ShadowSocks
 > ShadowSocks是一种socks5的代理，而socks5的代理服务器则是把你的网络数据请求通过一条连接你和代理服务器之间的通道，由服务器转发到目的地。你没有加入任何新的网络，只是http/socks数据经过代理服务器的转发送出，并从代理服务器接收回应。
 
-#### 下载并安装shell脚本
+* 下载并安装shell脚本
 ```bash
 wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
 chmod +x shadowsocks.sh
 ./shadowsocks.sh 2>&1 | tee shadowsocks.log
 ```
-* 输入ShadowSocks密码，需要记住
+** 输入ShadowSocks密码，需要记住
 * 输入端口号，默认为`8989`
 * 选择加密方式，默认为`aes-256-gcm`，建议修改为`7）aes-256-cfb`
 
-#### 常用命令
+* 常用命令
 > 启动：/etc/init.d/shadowsocks start
   停止：/etc/init.d/shadowsocks stop
   重启：/etc/init.d/shadowsocks restart
   状态：/etc/init.d/shadowsocks status
   卸载：./shadowsocks.sh uninstall
   
-#### 配置文件
+* 配置文件
 > 配置文件路径：/etc/shadowsocks.json
 
 * 单用户配置：
@@ -90,7 +88,7 @@ chmod +x shadowsocks.sh
     "fast_open": false
 }
 ```
-
+<br>
 
 ## 安装ShadowSocks客户端
 * [Windows ShadowSocks客户端](https://github.com/shadowsocks/shadowsocks-windows/releases)
